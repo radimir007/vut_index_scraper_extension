@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        :root {
+            --ext-width: 300px;
+        }
+        body {
+            min-width: var(--ext-width);
+            padding: .3rem 1rem;
+        }
+        h1 {
+            font-size: 1.1rem;
+        }
+        h2 {
+            font-size: 1.3rem;
+            width: fit-content;
+            text-decoration: underline;
+        }
+        header {
+            display: flex;
+            width: 100%;
+            column-gap: .5rem;
+        }
+
+        #subject {
+            flex-grow: 1;
+            flex-shrink: 0;
+            padding: .5rem .3rem;
+            font-size: 1rem;
+        }
+
+        header button {
+            background: linear-gradient(to bottom, rgb(0, 179, 255), cornflowerblue);
+            border-radius: 5rem;
+            color: white;
+            font-size: 1rem;
+            border: none;
+            padding: 0 .6rem;
+            cursor: pointer;
+        }
+
+        main aside {
+            max-width: var(--ext-width);
+            overflow-x: auto;
+        }
+
+        .exams {
+            list-style-type: none;
+            display: flex;
+            column-gap: .4rem;
+            padding: 0;
+            width: auto;
+        }
+
+        .exams li {
+            padding: .4rem .7rem;
+            border-radius: 3rem;
+            border: 1px solid cornflowerblue;
+            white-space: nowrap;
+            transition: .1s ease;
+            font-size: .9rem;
+        }
+
+        .exams li.active {
+            background: cornflowerblue;
+            color: white;
+        }
+
+        .exams li:hover {
+            background: cornflowerblue;
+            cursor: pointer;
+            color: white;
+        }
+
+        .results {
+            margin-top: .8rem;
+        }
+
+        .results div {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            row-gap: .2rem;
+        }
+
+        .results article h3 {
+            font-weight: normal;
+            font-size: .9rem;
+            margin-bottom: .1rem;
+        }
+
+        .results article p {
+            font-weight: bold;
+            font-size: 1.7rem;
+            margin: 0;
+        }
+
+        #results-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1.5rem;
+        }
+
+        #results-table td {
+            border: 1px solid black;
+            padding: .2rem .5rem;
+            font-size: 1rem;
+        }
+
+        #results-table td:nth-of-type(2n - 1) {
+            background: cornflowerblue;
+            color: white;
+        }
+
+        .no-content {
+            display: none;
+            padding: .4rem 0 1rem;
+        }
+
+        h4 {
+            margin: 0 0 1.5rem 0;
+            font-size: 1rem;
+        }
+
+        .no-content a {
+            display: block;
+            width: fit-content;
+            padding: .6rem 1.2rem;
+            font-size: 1rem;
+            margin: 0 auto;
+            color: white;
+            background: linear-gradient(to bottom, rgb(0, 179, 255), cornflowerblue);
+            text-decoration: none;
+            border-radius: 5rem;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>Zvoľte predmet</h1>
+        <header>
+            <select id="subject">
+
+            </select>
+            <button>Scrape</button>
+        </header>
+        <main>
+            <aside>
+                <ul class="exams">
+                    
+                </ul>
+            </aside>
+            <section class="results">
+                <h2>Výsledky</h2>
+                <div>
+                    <article>
+                        <h3>Body</h3>
+                        <p><span id="my-points">-</span> / <span id="max-points">4</span></p>
+                    </article>
+                    <article>
+                        <h3>Opravené</h3>
+                        <p id="completion">342/715</p>
+                    </article>
+                    <article>
+                        <h3>Percentil</h3>
+                        <p id="percentile">62,15%</p>
+                    </article>
+                    <article>
+                        <h3>Priemerné body</h3>
+                        <p id="avg-points">2,45</p>
+                    </article>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <table id="results-table">
+
+            </table>
+        </footer>
+
+    </div>
+    <div class="no-content">
+        
+    </div>
+    
+    <script src="popup.js"></script>
+</body>
+</html>

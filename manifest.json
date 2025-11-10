@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "VUT index scraper",
+  "version": "1.0",
+  "description": "Scrapes all your marks into JSON file",
+  "permissions": ["storage", "offscreen", "tabs", "scripting"],
+  "background": { "service_worker": "background.js"},
+  "host_permissions": [
+    "https://www.vut.cz/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://www.vut.cz/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": { "default_popup": "popup.html" }
+}
